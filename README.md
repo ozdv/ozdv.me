@@ -1,3 +1,3 @@
-# Getting Started with Create React App
+# [ozdv.me](http://ozdv.me/)
 
-Personal website hosted at [ozdv.me](https://ozdv.me/).
+This repository is for my personal site
