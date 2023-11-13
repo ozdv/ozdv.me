@@ -1,5 +1,5 @@
-import express = require("express");
 import cors = require("cors");
+import express = require("express");
 // Could chck out:
 // https://blog.logrocket.com/extend-express-request-object-typescript/
 
