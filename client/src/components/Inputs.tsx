@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useId } from "react";
 
 const formClasses =
-  "bg-gray-50 z-10 block w-full appearance-none overflow-ellipsis rounded-lg border border-gray-200 focus:border-blue-500 focus:pb-2.5 focus:pt-4 focus:outline-none focus:ring-blue-500 bg-white px-[15px] pb-2.5 pt-4 text-sm focus:border-blue-500 focus:pb-2.5 focus:pt-4 focus:outline-none text-gray-900 placeholder:text-transparent autofill:text-sm autofill:text-gray-900";
+  "z-10 block w-full appearance-none overflow-ellipsis rounded-md border-0 bg-white bg-white/5 px-[15px] pb-2.5 pt-4 text-sm text-gray-900 ring-1 ring-inset ring-white/10 placeholder:text-transparent autofill:text-sm focus:pb-2.5 focus:pt-4 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 dark:text-white dark:autofill:text-white";
 function Label({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <label
@@ -46,7 +46,7 @@ export function TextInput({
       <label
         htmlFor={id}
         className={clsx(
-          "absolute left-4 top-3.5 cursor-text text-sm text-gray-600 duration-300",
+          "absolute left-4 top-3.5 cursor-text text-sm text-gray-600 duration-300 dark:text-white",
           "origin-[0] -translate-y-3 scale-75 transform peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-autofill:-translate-y-3 peer-autofill:scale-75 peer-focus:-translate-y-3 peer-focus:scale-75",
           "transition-all"
         )}

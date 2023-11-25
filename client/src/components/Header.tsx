@@ -4,10 +4,16 @@ import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Link from "next/link";
 import { Fragment } from "react";
-import { Button } from "./Button";
 import { Container } from "./Container";
 import NavLink from "./NavLink";
 import { ThemeToggle } from "./ThemeToggle";
+
+const navItems = [
+  { label: "iCatholic", href: "icatholic" },
+  { label: "OpenGames", href: "opengames" },
+  { label: "About", href: "about" },
+  { label: "Contact", href: "contact" },
+];
 
 function MobileNavLink({
   href,
@@ -88,9 +94,11 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full flex origin-top flex-col rounded-2xl border border-white/10 bg-gray-900 p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 backdrop-blur backdrop-filter"
           >
-            <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
-            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
+            {navItems.map((navItem) => (
+              <MobileNavLink href={navItem.href} key={navItem.href}>
+                {navItem.label}
+              </MobileNavLink>
+            ))}
             <hr className="m-2 border-white/10" />
             <MobileNavLink href="/login">Sign in</MobileNavLink>
           </Popover.Panel>
@@ -115,20 +123,22 @@ const Header = () => {
               OZDV
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="/features">Features</NavLink>
-              <NavLink href="/testimonials">Testimonials</NavLink>
-              <NavLink href="/pricing">Pricing</NavLink>
+              {navItems.map((navItem) => (
+                <NavLink href={navItem.href} key={navItem.href}>
+                  {navItem.label}
+                </NavLink>
+              ))}
             </div>
           </nav>
           <div className="flex items-center gap-x-5">
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>
-            <Button href="/register" color="blue">
+            {/* <Button href="/register" color="blue">
               <span>
                 Get started <span className="hidden lg:inline">today</span>
               </span>
-            </Button>
+            </Button> */}
             <ThemeToggle />
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
