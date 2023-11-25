@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,10 +26,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx("h-full scroll-smooth antialiased", inter.variable)}
+      className={clsx("min-h-full antialiased", inter.variable)}
+      suppressHydrationWarning
     >
-      <body className="flex h-full flex-col bg-gray-900 text-gray-400">
-        {children}
+      <body className="flex min-h-full flex-col bg-white dark:bg-gray-900">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

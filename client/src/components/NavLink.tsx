@@ -11,7 +11,7 @@ const NavLink = ({
   return (
     <Link
       href={href}
-      className="inline-block rounded-lg px-2 py-1 text-sm text-gray-400 hover:bg-slate-100 hover:text-slate-900"
+      className="text-sm font-semibold leading-6 text-slate-700 hover:text-sky-500 dark:text-slate-200 dark:hover:text-sky-400"
     >
       {children}
     </Link>

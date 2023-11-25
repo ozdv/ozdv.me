@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { Button } from "./Button";
 import { Container } from "./Container";
 import NavLink from "./NavLink";
+import { ThemeToggle } from "./ThemeToggle";
 
 function MobileNavLink({
   href,
@@ -30,7 +31,7 @@ function MobileNavIcon({ open }: { open: boolean }) {
   return (
     <svg
       aria-hidden="true"
-      className="h-3.5 w-3.5 overflow-visible stroke-white"
+      className="h-3.5 w-3.5 overflow-visible stroke-gray-900 dark:stroke-white"
       fill="none"
       strokeWidth={2}
       strokeLinecap="round"
@@ -85,7 +86,6 @@ function MobileNavigation() {
         >
           <Popover.Panel
             as="div"
-            // pointer-events-auto min-w-0 max-w-sm flex-1 border-r
             className="absolute inset-x-0 top-full flex origin-top flex-col rounded-2xl border border-white/10 bg-gray-900 p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 backdrop-blur backdrop-filter"
           >
             <MobileNavLink href="#features">Features</MobileNavLink>
@@ -102,24 +102,25 @@ function MobileNavigation() {
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-40 w-full bg-gray-900/50 sm:backdrop-blur sm:backdrop-filter">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-900/10 bg-white/75 dark:border-gray-800 dark:bg-gray-900/50 sm:backdrop-blur sm:backdrop-filter">
       <Container>
-        <nav className="relative z-50 flex justify-between border-b border-gray-800 px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center md:gap-x-12">
+        <div className="relative z-50 flex w-full flex-1 justify-between  px-4 py-3 sm:px-6 lg:px-8">
+          <nav className="flex items-center md:gap-x-12">
             <Link
-              href="#"
+              href="/"
               aria-label="Home"
-              className="inline-block rounded-lg px-2 py-1 text-sm text-white hover:bg-slate-100 hover:text-slate-900"
+              scroll={false}
+              className="text-xl text-slate-700 hover:text-sky-500 dark:text-slate-200 dark:hover:text-sky-400"
             >
               OZDV
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+              <NavLink href="/features">Features</NavLink>
+              <NavLink href="/testimonials">Testimonials</NavLink>
+              <NavLink href="/pricing">Pricing</NavLink>
             </div>
-          </div>
-          <div className="flex items-center gap-x-5 md:gap-x-8">
+          </nav>
+          <div className="flex items-center gap-x-5">
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>
@@ -128,11 +129,12 @@ const Header = () => {
                 Get started <span className="hidden lg:inline">today</span>
               </span>
             </Button>
+            <ThemeToggle />
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>
           </div>
-        </nav>
+        </div>
       </Container>
     </header>
   );
