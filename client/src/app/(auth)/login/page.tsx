@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 
 const LoginPage = () => {
   return (
-    <div>
+    <div className="w-full max-w-sm rounded-lg border px-6 py-4">
       <div>Login</div>
-      <form className="">
+      <form className="space-y-2">
         <TextInput />
         <TextInput />
-        <Button />
+        <Button>Button</Button>
       </form>
     </div>
   );

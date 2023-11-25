@@ -102,7 +102,7 @@ function MobileNavigation() {
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-900/10 bg-white/75 dark:border-gray-800 dark:bg-gray-900/50 sm:backdrop-blur sm:backdrop-filter">
+    <header className="sticky top-0 z-40 w-full border-b bg-white/75 dark:bg-gray-900/50 sm:backdrop-blur sm:backdrop-filter">
       <Container>
         <div className="relative z-50 flex w-full flex-1 justify-between  px-4 py-3 sm:px-6 lg:px-8">
           <nav className="flex items-center md:gap-x-12">
