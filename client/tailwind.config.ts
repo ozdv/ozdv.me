@@ -1,7 +1,10 @@
 import headlessuiPlugin from "@headlessui/tailwindcss";
 import type { Config } from "tailwindcss";
 
+// This is tailwinds default config:
+// https://github.com/tailwindlabs/tailwindcss/blob/master/stubs/config.full.js
 const config: Config = {
+  darkMode: "class",
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     fontSize: {

@@ -25,12 +25,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx(
-        "h-full scroll-smooth bg-white antialiased",
-        inter.variable
-      )}
+      className={clsx("h-full scroll-smooth antialiased", inter.variable)}
     >
-      <body className="flex h-full flex-col">{children}</body>
+      <body className="flex h-full flex-col bg-gray-900 text-gray-400">
+        {children}
+      </body>
     </html>
   );
 }
