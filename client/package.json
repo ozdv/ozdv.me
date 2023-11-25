@@ -10,6 +10,8 @@
     "reset": "rm -rf node_modules && yarn"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@headlessui/tailwindcss": "^0.2.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.5",
     "next": "14.0.2",

@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -11,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: "%s - ozdv",
-    default: "ozdv - Innovative software solutions",
+    default: "ozdv",
   },
   description: "Innovative software solutions",
 };
@@ -22,8 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      className={clsx(
+        "h-full scroll-smooth bg-white antialiased",
+        inter.variable
+      )}
+    >
+      <body className="flex h-full flex-col">{children}</body>
     </html>
   );
 }
