@@ -55,8 +55,11 @@ type ButtonProps = (
     }
 ) &
   (
-    | Omit<React.ComponentPropsWithoutRef<typeof Link>, "color">
+    | (Omit<React.ComponentPropsWithoutRef<typeof Link>, "color"> & {
+        icon?: React.ReactNode;
+      })
     | (Omit<React.ComponentPropsWithoutRef<"button">, "color"> & {
+        icon?: React.ReactNode;
         href?: undefined;
       })
   );
@@ -79,5 +82,21 @@ export function Button({ className, ...props }: ButtonProps) {
     <button className={className} {...props} />
   ) : (
     <Link className={className} {...props} />
+  );
+}
+
+export function IconButton({ className, ...props }: ButtonProps) {
+  className = clsx(
+    "",
+    "h-10 w-10 p-2 rounded-full hover:cursor-pointer fill-slate-700 hover:bg-slate-200 dark:fill-slate-200 dark:hover:bg-slate-700"
+  );
+  return typeof props.href === "undefined" ? (
+    <button className={className} {...props}>
+      {props.icon ? props.icon : null}
+    </button>
+  ) : (
+    <Link className={className} {...props}>
+      {props.icon ? props.icon : null}
+    </Link>
   );
 }

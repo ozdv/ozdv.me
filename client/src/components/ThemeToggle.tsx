@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -31,11 +32,16 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      className="group -m-2.5 p-2.5"
+      className="group"
       onClick={() => setTheme(otherTheme)}
     >
       <span className="sr-only">Switch to {otherTheme} theme</span>
-      <ThemeIcon className="h-6 w-6 fill-gray-900 opacity-50 transition-opacity group-hover:opacity-100 dark:fill-white" />
+      <ThemeIcon
+        className={clsx(
+          "h-6 w-6 fill-slate-600 group-hover:opacity-100 dark:fill-slate-200",
+          resolvedTheme === "dark" ? " rotate-180" : ""
+        )}
+      />
     </button>
   );
 }

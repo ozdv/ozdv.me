@@ -1,7 +1,7 @@
 import { IconButton } from "./Button";
 import { Container } from "./Container";
 
-const Hero = () => {
+const About = () => {
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
       <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium text-slate-700 dark:text-slate-200 sm:text-7xl">
@@ -54,4 +54,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default About;
