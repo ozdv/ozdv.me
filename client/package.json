@@ -10,7 +10,7 @@
     "reset": "rm -rf node_modules && yarn"
   },
   "engines": {
-    "npm": ">=8",
+    "npm": ">=9.8",
     "node": ">=18.17.0"
   },
   "dependencies": {
