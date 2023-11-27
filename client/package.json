@@ -11,7 +11,8 @@
   },
   "engines": {
     "npm": ">=9.8",
-    "node": ">=18.17.0"
+    "node": ">=18.17.0",
+    "yarn": ">=1.22.19"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
