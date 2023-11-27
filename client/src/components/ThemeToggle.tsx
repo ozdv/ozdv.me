@@ -38,7 +38,7 @@ export function ThemeToggle() {
       <span className="sr-only">Switch to {otherTheme} theme</span>
       <ThemeIcon
         className={clsx(
-          "h-6 w-6 fill-slate-600 group-hover:opacity-100 dark:fill-slate-200",
+          "h-6 w-6 transform fill-slate-600 transition-all hover:ease-in-out group-hover:fill-slate-900 dark:fill-slate-200 dark:group-hover:fill-white",
           resolvedTheme === "dark" ? " rotate-180" : ""
         )}
       />

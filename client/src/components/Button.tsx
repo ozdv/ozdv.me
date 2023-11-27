@@ -21,30 +21,36 @@
 import clsx from "clsx";
 import Link from "next/link";
 
+const allBaseStyles =
+  "group inline-flex items-center justify-center py-1.5 px-4 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 leading-6 transition-all transform";
+
 const baseStyles = {
-  solid:
-    "group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2",
-  outline:
-    "group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none",
+  solid: "rounded-full",
+  outline: "rounded-full ring-1",
+  default: "rounded-md shadow-sm",
 };
 
 const variantStyles = {
   solid: {
-    slate:
-      "bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900",
-    blue: "bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600",
-    white:
-      "bg-white text-slate-900 hover:bg-blue-50 active:bg-blue-200 active:text-slate-600 focus-visible:outline-white",
+    default:
+      "bg-slate-900 text-white hover:bg-slate-700 focus-visible:outline-slate-900 active:bg-slate-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus-visible:outline-slate-300 dark:active:bg-slate-400",
+    primary:
+      "bg-indigo-600 text-white hover:bg-indigo-400 focus-visible:outline-indigo-600 active:bg-indigo-500 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-600 dark:active:bg-indigo-500",
   },
   outline: {
-    slate:
-      "ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300",
-    white:
-      "ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white",
+    default:
+      "ring-slate-300 text-slate-700 hover:text-slate-900 hover:ring-slate-700 active:bg-slate-50 active:text-slate-800 focus-visible:outline-slate-300 focus-visible:ring-slate-300 " +
+      "dark:ring-slate-600 dark:text-slate-200 dark:hover:text-white dark:hover:ring-slate-500 dark:hover:bg-slate-700 dark:active:bg-slate-800 dark:active:text-slate-100 dark:focus-visible:outline-slate-300 dark:focus-visible:ring-slate-300",
+    primary:
+      "ring-slate-300 text-slate-700 hover:text-slate-900 hover:ring-slate-700 active:bg-slate-50 active:text-slate-800 focus-visible:outline-slate-300 focus-visible:ring-slate-300",
   },
 };
 
 type ButtonProps = (
+  | {
+      variant?: "default";
+      color?: keyof typeof variantStyles.solid;
+    }
   | {
       variant?: "solid";
       color?: keyof typeof variantStyles.solid;
@@ -65,16 +71,15 @@ type ButtonProps = (
   );
 
 export function Button({ className, ...props }: ButtonProps) {
-  props.variant ??= "solid";
-  props.color ??= "slate";
+  props.variant ??= "default";
+  props.color ??= "default";
 
   className = clsx(
+    allBaseStyles,
     baseStyles[props.variant],
     props.variant === "outline"
       ? variantStyles.outline[props.color]
-      : props.variant === "solid"
-        ? variantStyles.solid[props.color]
-        : undefined,
+      : variantStyles.solid[props.color],
     className
   );
 

@@ -118,7 +118,7 @@ const Header = () => {
               href="/"
               aria-label="Home"
               scroll={false}
-              className="text-xl text-slate-700 hover:text-sky-500 dark:text-slate-200 dark:hover:text-sky-400"
+              className="text-xl text-slate-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
             >
               OZDV
             </Link>
@@ -134,11 +134,7 @@ const Header = () => {
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>
-            {/* <Button href="/register" color="blue">
-              <span>
-                Get started <span className="hidden lg:inline">today</span>
-              </span>
-            </Button> */}
+
             <ThemeToggle />
             <div className="-mr-1 md:hidden">
               <MobileNavigation />

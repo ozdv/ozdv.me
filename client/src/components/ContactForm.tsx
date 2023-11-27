@@ -93,8 +93,10 @@ const ContactForm = () => {
         <TextInput name="email" label="Email address" required />
         <TextArea name="message" />
 
-        <div className="mb-2">
-          <Button type="submit">Contact Us</Button>
+        <div className="mb-4">
+          <Button type="submit" className="w-full" color="primary">
+            Send email
+          </Button>
         </div>
       </form>
     </div>
