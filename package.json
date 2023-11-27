@@ -14,8 +14,7 @@
   },
   "scripts": {
     "start": "concurrently \"yarn workspace server start\" \"yarn workspace client dev\"",
-    "reset": "concurrently \"yarn workspace server reset\" \"yarn workspace client reset\"",
-    "install": "concurrently \"yarn workspace server install\" \"yarn workspace client install\""
+    "reset": "concurrently \"yarn workspace server reset\" \"yarn workspace client reset\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
