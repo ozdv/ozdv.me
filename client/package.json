@@ -9,11 +9,6 @@
     "lint": "next lint",
     "reset": "rm -rf node_modules && yarn"
   },
-  "engines": {
-    "npm": ">=9.8",
-    "node": ">=18.17.0",
-    "yarn": ">=1.22.19"
-  },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@headlessui/tailwindcss": "^0.2.0",
