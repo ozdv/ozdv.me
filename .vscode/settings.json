@@ -1,7 +1,7 @@
 {
   "editor.codeActionsOnSave": {
-    "editor.formatOnSave": true,
-    "source.organizeImports": true
+    "editor.formatOnSave": "explicit",
+    "source.organizeImports": "explicit"
   },
   "search.exclude": {
     "**/node_modules/*": true,
