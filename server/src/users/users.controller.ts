@@ -15,6 +15,7 @@ import { UsersService } from './users.service';
 // https://docs.nestjs.com/exception-filters
 
 // Primary responsibility is to define the routes
+
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -26,8 +27,10 @@ export class UsersController {
   }
 
   // GET /users
+
   @Get()
   findAll() {
+    console.log('get users');
     return this.usersService.findAll();
   }
 
