@@ -3,7 +3,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Container } from "./Container";
 import NavLink from "./NavLink";
 import { ThemeToggle } from "./ThemeToggle";
@@ -109,40 +109,74 @@ function MobileNavigation() {
 }
 
 const Header = () => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  console.log("scroll", scroll);
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-white/75 dark:bg-gray-900/50 sm:backdrop-blur sm:backdrop-filter">
-      <Container>
-        <div className="relative z-50 flex w-full flex-1 justify-between  px-4 py-3 sm:px-6 lg:px-8">
-          <nav className="flex items-center md:gap-x-12">
-            <Link
-              href="/"
-              aria-label="Home"
-              scroll={false}
-              className="text-xl text-slate-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
-            >
-              OZDV
-            </Link>
-            <div className="hidden md:flex md:gap-x-6">
-              {navItems.map((navItem) => (
-                <NavLink href={navItem.href} key={navItem.href}>
-                  {navItem.label}
-                </NavLink>
-              ))}
-            </div>
-          </nav>
-          <div className="flex items-center gap-x-5">
-            {/* <div className="hidden md:block">
+    <div className="mb-16">
+      <header
+        className={clsx(
+          "fixed inset-x-0 top-0 z-50 border-b bg-white/60 backdrop-blur transition-colors duration-500 dark:bg-gray-900/60",
+          {
+            "border-b": scroll,
+            "!border-b-transparent": !scroll,
+          }
+        )}
+      >
+        <Container>
+          <div
+            className={clsx(
+              "relative flex justify-between px-4 transition-all duration-500 sm:px-6 lg:px-8",
+              {
+                "py-3": scroll,
+                "py-6": !scroll,
+              }
+            )}
+          >
+            <nav className="flex items-center md:gap-x-12">
+              <Link
+                href="/"
+                aria-label="Home"
+                scroll={false}
+                className="text-xl text-slate-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+              >
+                OZDV
+              </Link>
+              <div className="hidden md:flex md:gap-x-6">
+                {navItems.map((navItem) => (
+                  <NavLink href={navItem.href} key={navItem.href}>
+                    {navItem.label}
+                  </NavLink>
+                ))}
+              </div>
+            </nav>
+            <div className="flex items-center gap-x-5">
+              {/* <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div> */}
 
-            <ThemeToggle />
-            <div className="-mr-1 md:hidden">
-              <MobileNavigation />
+              <ThemeToggle />
+              <div className="-mr-1 md:hidden">
+                <MobileNavigation />
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
-    </header>
+        </Container>
+      </header>
+    </div>
   );
 };
 
