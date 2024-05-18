@@ -20,6 +20,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
+import Icon from "./Icon";
 
 const allBaseStyles =
   "group inline-flex items-center justify-center py-1.5 px-4 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 leading-6 transition-all transform";
@@ -62,10 +63,14 @@ type ButtonProps = (
 ) &
   (
     | (Omit<React.ComponentPropsWithoutRef<typeof Link>, "color"> & {
-        icon?: React.ReactNode;
+        icon?: string;
+        iconStyle?: string;
+        size?: "sm" | "base" | "lg";
       })
     | (Omit<React.ComponentPropsWithoutRef<"button">, "color"> & {
-        icon?: React.ReactNode;
+        icon?: string;
+        iconStyle?: string;
+        size?: "sm" | "base" | "lg";
         href?: undefined;
       })
   );
@@ -90,18 +95,44 @@ export function Button({ className, ...props }: ButtonProps) {
   );
 }
 
-export function IconButton({ className, ...props }: ButtonProps) {
-  className = clsx(
-    "",
-    "h-10 w-10 p-2 rounded-full hover:cursor-pointer fill-slate-700 hover:bg-slate-200 dark:fill-slate-200 dark:hover:bg-slate-700"
-  );
+export function IconButton({
+  className = "",
+  icon,
+  iconStyle = "",
+  size,
+  ...props
+}: ButtonProps) {
+  let buttonStyles =
+    "group rounded-full hover:cursor-pointer transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 flex items-center justify-center";
+  let iconStyles = "";
+  let iconColor = "fill-zinc-500 dark:fill-zinc-200";
+
+  switch (size) {
+    case "sm":
+      buttonStyles = buttonStyles + " " + "h-10 w-10 p-2";
+      iconStyles = iconColor + " " + "h-8 w-8";
+      break;
+    case "lg":
+      buttonStyles = "";
+      iconStyles = "";
+      break;
+    default:
+      buttonStyles = buttonStyles + " " + "sm:h-20 sm:w-20 h-14 w-14";
+      iconStyles = iconColor + " " + "sm:h-14 sm:w-14 h-8 w-8";
+      break;
+  }
+
   return typeof props.href === "undefined" ? (
-    <button className={className} {...props}>
-      {props.icon ? props.icon : null}
+    <button className={className + " " + buttonStyles} {...props}>
+      {icon ? (
+        <Icon icon={icon} iconStyle={iconStyle + " " + iconStyles} />
+      ) : null}
     </button>
   ) : (
-    <Link className={className} {...props}>
-      {props.icon ? props.icon : null}
+    <Link className={className + buttonStyles} {...props}>
+      {icon ? (
+        <Icon icon={icon} iconStyle={iconStyle + " " + iconStyles} />
+      ) : null}
     </Link>
   );
 }
