@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 function ThemeIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -17,31 +16,23 @@ function ThemeIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 }
 
 export function ThemeToggle() {
-  let [mounted, setMounted] = useState(false);
-  let { resolvedTheme, setTheme } = useTheme();
-  let otherTheme = resolvedTheme === "dark" ? "light" : "dark";
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
+  const { theme, setTheme } = useTheme();
+  const otherTheme = theme === "dark" ? "light" : "dark";
 
   return (
     <button
       type="button"
-      className="group"
-      onClick={() => setTheme(otherTheme)}
+      className={clsx(
+        "h-6 w-6 fill-slate-600 hover:fill-slate-900 dark:fill-slate-300 dark:hover:fill-slate-100 ",
+        "transition-all duration-500",
+        { "rotate-180": theme === "dark" }
+      )}
+      onClick={() => {
+        setTheme(otherTheme);
+      }}
     >
       <span className="sr-only">Switch to {otherTheme} theme</span>
-      <ThemeIcon
-        className={clsx(
-          "h-6 w-6 transform fill-slate-600 transition-all hover:ease-in-out group-hover:fill-slate-900 dark:fill-slate-200 dark:group-hover:fill-white",
-          resolvedTheme === "dark" ? " rotate-180" : ""
-        )}
-      />
+      <ThemeIcon />
     </button>
   );
 }

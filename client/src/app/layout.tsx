@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import "@/styles/globals.css";
 import clsx from "clsx";
 import type { Metadata } from "next";
@@ -29,8 +30,11 @@ export default function RootLayout({
       className={clsx("min-h-full antialiased", inter.variable)}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col bg-white dark:bg-gray-900">
-        <Providers>{children}</Providers>
+      <body className="flex h-screen flex-col bg-white dark:bg-zinc-900">
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );
