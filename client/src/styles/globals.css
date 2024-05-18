@@ -10,6 +10,6 @@
   .border-b,
   .border-x,
   .border-y {
-    @apply border-slate-900/10 dark:border-gray-800;
+    @apply border-zinc-900/10 dark:border-zinc-800;
   }
 }

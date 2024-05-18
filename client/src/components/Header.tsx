@@ -124,12 +124,12 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log("scroll", scroll);
+
   return (
     <div className="mb-16">
       <header
         className={clsx(
-          "fixed inset-x-0 top-0 z-50 border-b bg-white/60 backdrop-blur transition-colors duration-500 dark:bg-gray-900/60",
+          "fixed inset-x-0 top-0 z-50 border-b backdrop-blur transition-colors duration-500",
           {
             "border-b": scroll,
             "!border-b-transparent": !scroll,
