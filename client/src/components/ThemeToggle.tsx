@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 function ThemeIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -15,17 +16,28 @@ function ThemeIcon(props: React.ComponentPropsWithoutRef<"svg">) {
   );
 }
 
+// https://github.com/pacocoursey/next-themes
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   const otherTheme = theme === "dark" ? "light" : "dark";
 
   return (
     <button
       type="button"
       className={clsx(
-        "h-6 w-6 fill-slate-600 hover:fill-slate-900 dark:fill-slate-300 dark:hover:fill-slate-100 ",
+        "h-6 w-6 fill-slate-600 hover:fill-slate-900 dark:fill-slate-200 dark:hover:fill-slate-100",
         "transition-all duration-500",
-        { "rotate-180": theme === "dark" }
+        { "-rotate-180": theme === "dark" }
       )}
       onClick={() => {
         setTheme(otherTheme);
