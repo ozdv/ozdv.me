@@ -99,8 +99,8 @@ function MobileNavigation() {
                 {navItem.label}
               </MobileNavLink>
             ))}
-            <hr className="m-2 border-white/10" />
-            <MobileNavLink href="/login">Sign in</MobileNavLink>
+            {/* <hr className="m-2 border-white/10" /> */}
+            {/* <MobileNavLink href="/login">Sign in</MobileNavLink> */}
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -131,9 +131,9 @@ const Header = () => {
             </div>
           </nav>
           <div className="flex items-center gap-x-5">
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
-            </div>
+            </div> */}
 
             <ThemeToggle />
             <div className="-mr-1 md:hidden">
