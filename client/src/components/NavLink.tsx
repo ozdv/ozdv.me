@@ -11,7 +11,7 @@ const NavLink = ({
   return (
     <Link
       href={href}
-      className="text-sm font-semibold leading-6 text-slate-700 transition-colors duration-300 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white"
+      className="text-sm font-semibold leading-6 text-zinc-600 transition-colors duration-300 hover:text-zinc-900 focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-zinc-300 dark:hover:text-white dark:focus-visible:outline-zinc-700"
     >
       {children}
     </Link>

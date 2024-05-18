@@ -26,7 +26,7 @@ function MobileNavLink({
     <Popover.Button
       as={Link}
       href={href}
-      className="flex items-center whitespace-nowrap rounded px-6 py-2 font-medium text-white transition-colors duration-200 hover:text-white lg:px-0 lg:py-0 lg:text-sm"
+      className="flex items-center whitespace-nowrap rounded px-6 py-2 text-lg font-semibold tracking-tight text-zinc-900 transition-colors duration-200 dark:text-white"
     >
       {children}
     </Popover.Button>
@@ -79,7 +79,7 @@ function MobileNavigation() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Overlay className="fixed inset-0 bg-gray-900/50 opacity-100 backdrop-blur backdrop-filter" />
+          <Popover.Overlay className="fixed inset-0 h-screen bg-white/75 dark:bg-zinc-900/75" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -92,7 +92,7 @@ function MobileNavigation() {
         >
           <Popover.Panel
             as="div"
-            className="absolute inset-x-0 top-full flex origin-top flex-col rounded-2xl border border-white/10 bg-gray-900 p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 backdrop-blur backdrop-filter"
+            className="absolute inset-x-4 mt-4 flex origin-top flex-col rounded-2xl border bg-white p-4 shadow-xl ring-0 backdrop-blur backdrop-filter dark:bg-zinc-900"
           >
             {navItems.map((navItem) => (
               <MobileNavLink href={navItem.href} key={navItem.href}>
@@ -149,7 +149,7 @@ const Header = () => {
                 href="/"
                 aria-label="Home"
                 scroll={false}
-                className="text-xl text-zinc-900 transition-colors duration-300 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400"
+                className="text-2xl text-zinc-900 transition-colors duration-300 hover:text-indigo-600 focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 dark:text-slate-200 dark:hover:text-indigo-400 dark:focus-visible:outline-indigo-600"
               >
                 OZDV
               </Link>

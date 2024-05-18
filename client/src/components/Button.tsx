@@ -103,7 +103,7 @@ export function IconButton({
   ...props
 }: ButtonProps) {
   let buttonStyles =
-    "group rounded-full hover:cursor-pointer transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 flex items-center justify-center";
+    "group rounded-full hover:cursor-pointer transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 flex items-center justify-center focus-visible:outline-0 focus-visible:ring-4 focus-visible:ring-zinc-200 dark:focus-visible:ring-zinc-800";
   let iconStyles = "";
   let iconColor = "fill-zinc-500 dark:fill-zinc-200";
 

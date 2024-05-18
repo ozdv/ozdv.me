@@ -36,6 +36,7 @@ export function ThemeToggle() {
       type="button"
       className={clsx(
         "h-6 w-6 fill-slate-600 hover:fill-slate-900 dark:fill-slate-200 dark:hover:fill-slate-100",
+        "focus-visible:rounded-full focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600",
         "transition-all duration-500",
         { "-rotate-180": theme === "dark" }
       )}
