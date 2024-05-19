@@ -4,8 +4,9 @@ import { IconButton } from "./Button";
 import { Container } from "./Container";
 
 const Hero = () => {
+  // todo add sections here for experience/projects
   return (
-    <>
+    <div className="max-h-[calc(100vh-90px)] overflow-y-clip">
       <section className="relative">
         <Container className="flex flex-col items-center pb-20 sm:mt-10 sm:pb-40">
           <Image
@@ -75,9 +76,9 @@ const Hero = () => {
         </div>
       </section>
       <section className="w-full bg-zinc-100 dark:bg-zinc-800">
-        <div className="bg-bla h-screen" />
+        <div className="h-screen" />
       </section>
-    </>
+    </div>
   );
 };
 
