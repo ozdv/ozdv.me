@@ -15,7 +15,7 @@ const Hero = () => {
             priority
           />
 
-          <h1 className="font-display mx-auto mt-10 text-2xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-5xl">
+          <h1 className="mx-auto mt-10 text-2xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-5xl">
             <div className="relative text-center text-2xl sm:hidden">
               Hey there!
             </div>
