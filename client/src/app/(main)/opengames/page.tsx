@@ -3,7 +3,7 @@ import { Container } from "@/components/Container";
 const OpenGamesPage = () => {
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
-      <h1 className="font-display mx-auto mb-4 max-w-4xl text-5xl font-medium text-slate-700 dark:text-slate-200 sm:text-7xl">
+      <h1 className="mx-auto mb-4 max-w-4xl text-5xl font-medium text-slate-700 dark:text-slate-200 sm:text-7xl">
         <span className="relative whitespace-nowrap">
           <svg
             aria-hidden="true"

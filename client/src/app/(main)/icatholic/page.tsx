@@ -5,7 +5,7 @@ const ICatholicPage = () => {
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
       <div>
-        <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium text-slate-700 dark:text-slate-200 sm:text-7xl">
+        <h1 className="mx-auto max-w-4xl text-5xl font-medium text-slate-700 dark:text-slate-200 sm:text-7xl">
           <span className="relative whitespace-nowrap">
             <svg
               aria-hidden="true"
