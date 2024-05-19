@@ -3,10 +3,10 @@ import { Container } from "@/components/Container";
 
 const ContacPage = () => {
   return (
-    <Container className="pb-16 pt-20 text-center">
-      <div className="mb-8 text-center text-2xl font-bold leading-9 text-zinc-900 dark:text-white">
+    <Container className="flex flex-1 flex-col px-4 pb-16 pt-16 text-center">
+      <h1 className="mb-6 text-center text-4xl font-bold leading-9 text-zinc-900 dark:text-zinc-100 sm:text-4xl">
         Contact me
-      </div>
+      </h1>
       <ContactForm />
     </Container>
   );

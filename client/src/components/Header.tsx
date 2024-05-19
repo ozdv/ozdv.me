@@ -11,7 +11,6 @@ import { ThemeToggle } from "./ThemeToggle";
 const navItems = [
   { label: "iCatholic", href: "icatholic" },
   { label: "OpenGames", href: "opengames" },
-  { label: "About", href: "about" },
   { label: "Contact", href: "contact" },
 ];
 

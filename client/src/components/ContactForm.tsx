@@ -72,7 +72,7 @@ const ContactForm = () => {
 
   if (status) {
     return (
-      <div className="mx-auto w-full md:w-96 md:max-w-full">
+      <div className="mx-auto w-full max-w-sm">
         <div className="border border-gray-300 p-6 sm:rounded-md">
           <div className="text-2xl">Thank you!</div>
           <div className="text-md">{status}</div>
@@ -82,24 +82,22 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="mx-auto w-full md:w-96 md:max-w-full">
-      <form
-        method="POST"
-        action={FORM_ENDPOINT}
-        onSubmit={handleFormSubmit}
-        className="space-y-6"
-      >
-        <TextInput name="name" label="Your name" required />
-        <TextInput name="email" label="Email address" required />
-        <TextArea name="message" />
+    <form
+      method="POST"
+      action={FORM_ENDPOINT}
+      onSubmit={handleFormSubmit}
+      className="mx-auto w-full max-w-sm  space-y-6"
+    >
+      <TextInput name="name" label="Your name" required />
+      <TextInput name="email" label="Email address" required />
+      <TextArea name="message" label="Message" required />
 
-        <div className="mb-4">
-          <Button type="submit" className="w-full" color="primary">
-            Send email
-          </Button>
-        </div>
-      </form>
-    </div>
+      <div className="mb-4">
+        <Button type="submit" className="w-full" color="primary">
+          Send email
+        </Button>
+      </div>
+    </form>
   );
 };
 
