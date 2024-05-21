@@ -1,5 +1,8 @@
 import { Container } from "@/components/Container";
-import DownloadButton from "@/components/DownloadButton";
+import Image from "next/image";
+import Link from "next/link";
+import appStore from "../../../../public/appStore.svg";
+import playStore from "../../../../public/playStore.svg";
 
 const ICatholicPage = () => {
   return (
@@ -23,14 +26,28 @@ const ICatholicPage = () => {
         </h1>
         <div className="mt-8">
           <div className="flex flex-row items-center justify-center space-x-4">
-            <DownloadButton
+            <Link
+              target="_blank"
               href="https://apps.apple.com/us/app/icatholic/id1666078538"
-              ios
-            />
-            <DownloadButton
+              rel="nofollow noopener noreferrer"
+            >
+              <Image
+                src={appStore}
+                height={40}
+                alt="ios-app-store-download-button"
+              />
+            </Link>
+            <Link
+              target="_blank"
               href="https://play.google.com/store/apps/details?id=com.ozdv.icatholic&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
-              android
-            />
+              rel="nofollow noopener noreferrer"
+            >
+              <Image
+                src={playStore}
+                height={40}
+                alt="google-play-store-download-button"
+              />
+            </Link>
           </div>
         </div>
       </div>
