@@ -48,12 +48,12 @@ const Hero = () => {
               icon="linkedin"
               iconStyle=""
             />
-            <IconButton
+            {/* <IconButton
               href="/Cameron_Davies_resume.pdf"
               target="_blank"
               icon="document"
               iconStyle=""
-            />
+            /> */}
             <IconButton
               href="https://github.com/ozdv"
               target="_blank"
