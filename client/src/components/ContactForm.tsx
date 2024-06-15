@@ -1,100 +1,87 @@
 "use client";
+
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "./Button";
-import { TextArea, TextInput } from "./Inputs";
-
-const FORM_ENDPOINT = ""; // TODO - fill on the later step
-
-function useContactForm() {
-  const [status, setStatus] = useState<string>();
-
-  const handleFormSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const injectedData: Record<string, string> = {
-      // Here you can specify anything you need to inject dynamically, outside the form. For example:
-      // DYNAMIC_DATA_EXAMPLE: 123,
-    };
-
-    const inputs = Array.from(e.currentTarget.elements) as HTMLFormElement[];
-    const data = inputs
-      .filter((input) => input.name)
-      .reduce(
-        (obj, input) => Object.assign(obj, { [input.name]: input.value }),
-        {} as Record<string, string>
-      );
-
-    Object.assign(data, injectedData);
-
-    fetch(FORM_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        // It's likely a spam/bot submission, so bypass it to validate via captcha challenge old-school style
-        if (response.status === 422) {
-          // Append dynamically generated keys back to the form
-          Object.keys(injectedData).forEach((key) => {
-            const el = document.createElement("input");
-            el.type = "hidden";
-            el.name = key;
-            el.value = injectedData[key];
-
-            e.currentTarget.appendChild(el);
-          });
-
-          // Let's submit the form again and spammer/bot will be redirected to another page automatically
-          // Submitting via javascript will bypass calling this function again
-          e.currentTarget.submit();
-
-          throw new Error("Please finish the captcha challenge");
-        }
-
-        if (response.status !== 200) {
-          throw new Error(response.statusText);
-        }
-
-        return response.json();
-      })
-      .then(() => setStatus("We'll be in touch soon."))
-      .catch((err) => setStatus(err.toString()));
-  };
-
-  return { status, handleFormSubmit };
-}
+import { Field, FieldGroup, Fieldset, Label } from "./fieldset";
+import { Input } from "./input";
+import { Textarea } from "./textarea";
 
 const ContactForm = () => {
-  const { status, handleFormSubmit } = useContactForm();
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  if (status) {
-    return (
-      <div className="mx-auto w-full max-w-sm">
-        <div className="border border-gray-300 p-6 sm:rounded-md">
-          <div className="text-2xl">Thank you!</div>
-          <div className="text-md">{status}</div>
-        </div>
-      </div>
-    );
-  }
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "bf03f3da-599a-4c6b-8ac5-2528dd56a001");
+    setLoading(true);
+    await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    })
+      .then((request) => request.json())
+      .then((response) => {
+        if (!response.success) throw new Error("Error submitting");
+      })
+      .catch((e) => console.error(e))
+      .finally(() => {
+        setLoading(false);
+        router.push("/contact/submitted");
+      });
+  };
 
   return (
-    <form
-      method="POST"
-      action={FORM_ENDPOINT}
-      onSubmit={handleFormSubmit}
-      className="mx-auto w-full max-w-sm  space-y-6"
-    >
-      <TextInput name="name" label="Your name" required />
-      <TextInput name="email" label="Email address" required />
-      <TextArea name="message" label="Message" required />
+    <form onSubmit={onSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
+      <Fieldset>
+        <FieldGroup>
+          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <Field>
+              <Label>First name</Label>
+              <Input
+                required
+                id="first-name"
+                name="First name"
+                autoComplete="given-name"
+              />
+            </Field>
+            <Field>
+              <Label>Last name</Label>
+              <Input
+                required
+                id="last-name"
+                name="Last name"
+                autoComplete="family-name"
+              />
+            </Field>
 
-      <div className="mb-4">
-        <Button type="submit" className="w-full" color="primary">
-          Send email
+            <div className="sm:col-span-2">
+              <Field>
+                <Label>Email</Label>
+                <Input
+                  required
+                  id="email"
+                  type="email"
+                  name="Email"
+                  autoComplete="email"
+                />
+              </Field>
+            </div>
+
+            <div className="sm:col-span-2">
+              <Field>
+                <Label>Message</Label>
+                <Textarea id="message" name="Message" rows={4} />
+              </Field>
+            </div>
+          </div>
+        </FieldGroup>
+      </Fieldset>
+      <div className="mt-8">
+        <Button className="w-full" disabled={loading} type="submit">
+          {" "}
+          {loading ? "Submitting..." : "Submit"}
         </Button>
       </div>
     </form>
