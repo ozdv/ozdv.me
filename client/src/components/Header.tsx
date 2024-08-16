@@ -1,5 +1,6 @@
 "use client";
 
+import { navItems } from "@/constants/navItems";
 import {
   Popover,
   PopoverButton,
@@ -10,25 +11,34 @@ import {
 } from "@headlessui/react";
 import clsx from "clsx";
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Container } from "./Container";
-import NavLink from "./NavLink";
 import { ThemeToggle } from "./ThemeToggle";
 
-const navItems = [
-  { label: "iCatholic", href: "/icatholic" },
-  { label: "Taglish", href: "/taglish" },
-  { label: "OpenGames", href: "/opengames" },
-  { label: "Contact", href: "/contact" },
-];
-
-function MobileNavLink({
+const NavLink = ({
   href,
   children,
 }: {
   href: string;
   children: React.ReactNode;
-}) {
+}) => {
+  return (
+    <Link
+      href={href}
+      className="text-sm font-semibold leading-6 text-zinc-600 transition-colors duration-300 hover:text-zinc-900 focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-zinc-300 dark:hover:text-white dark:focus-visible:outline-zinc-700"
+    >
+      {children}
+    </Link>
+  );
+};
+
+const MobileNavLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => {
   return (
     <PopoverButton
       as={Link}
@@ -38,9 +48,9 @@ function MobileNavLink({
       {children}
     </PopoverButton>
   );
-}
+};
 
-function MobileNavIcon({ open }: { open: boolean }) {
+const MobileNavIcon = ({ open }: { open: boolean }) => {
   return (
     <svg
       aria-hidden="true"
@@ -65,9 +75,9 @@ function MobileNavIcon({ open }: { open: boolean }) {
       />
     </svg>
   );
-}
+};
 
-function MobileNavigation() {
+const MobileNavigation = () => {
   return (
     <Popover>
       <PopoverButton
@@ -111,7 +121,7 @@ function MobileNavigation() {
       </Transition>
     </Popover>
   );
-}
+};
 
 const Header = () => {
   const [scroll, setScroll] = useState(false);

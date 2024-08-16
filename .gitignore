@@ -12,6 +12,7 @@ node_modules/
 
 # Nest
 dist/
+
 # next.js
 .next
 /out/
