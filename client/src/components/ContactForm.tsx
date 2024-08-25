@@ -16,6 +16,7 @@ const ContactForm = () => {
 
     const formData = new FormData(e.target);
     formData.append("access_key", "bf03f3da-599a-4c6b-8ac5-2528dd56a001");
+
     setLoading(true);
     await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -68,6 +69,11 @@ const ContactForm = () => {
                 />
               </Field>
             </div>
+            <input
+              type="hidden"
+              name="subject"
+              value="Contact submission from ozdv.me"
+            />
 
             <div className="sm:col-span-2">
               <Field>
@@ -78,9 +84,9 @@ const ContactForm = () => {
           </div>
         </FieldGroup>
       </Fieldset>
+
       <div className="mt-8">
         <Button className="w-full" disabled={loading} type="submit">
-          {" "}
           {loading ? "Submitting..." : "Submit"}
         </Button>
       </div>
