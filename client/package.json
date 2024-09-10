@@ -10,7 +10,7 @@
     "reset": "rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
-    "@headlessui/react": "^2.0.4",
+    "@headlessui/react": "^2.1.6",
     "@headlessui/tailwindcss": "^0.2.0",
     "@sentry/nextjs": "^8",
     "clsx": "^2.1.1",
