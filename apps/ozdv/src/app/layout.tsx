@@ -30,7 +30,7 @@ export default function RootLayout({
       className={clsx("min-h-full antialiased", inter.variable)}
       suppressHydrationWarning
     >
-      <body className="flex h-screen flex-col bg-white dark:bg-zinc-900">
+      <body className="flex min-h-full flex-col bg-white dark:bg-zinc-900">
         <Providers>
           <Header />
           <main>{children}</main>
