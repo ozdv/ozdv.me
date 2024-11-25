@@ -50,6 +50,16 @@ const ICatholicPage = () => {
             </Link>
           </div>
         </div>
+        <div className="mt-8">
+          <Link
+            href="/privacy"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-sm text-slate-500 dark:text-slate-400"
+          >
+            Privacy policy
+          </Link>
+        </div>
       </div>
     </Container>
   );
