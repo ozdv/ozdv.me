@@ -1,0 +1,12 @@
+# Ignore artifacts:
+next-env.d.ts
+
+# Dependencies:
+node_modules
+
+# Build:
+build
+.next
+
+# Coverage:
+coverage
