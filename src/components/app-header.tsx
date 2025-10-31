@@ -1,12 +1,15 @@
 "use client";
 
 import { ThemeToggle } from "@/components/theme-toggle";
+import { NAV_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const AppHeader = () => {
   const [scroll, setScroll] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,13 +45,16 @@ export const AppHeader = () => {
             </Link>
 
             <div className="flex items-center gap-6">
-              {["about", "experience", "projects", "contact"].map((navItem) => (
+              {NAV_ITEMS.map((navItem: { label: string; href: string }) => (
                 <Link
-                  key={navItem}
-                  href={`/${navItem}`}
-                  className="text-base px-1 text-muted-foreground hover:text-foreground transition-colors first-letter:uppercase"
+                  key={navItem.href}
+                  href={navItem.href}
+                  className={cn(
+                    "text-base px-1 text-muted-foreground hover:text-foreground transition-colors first-letter:uppercase",
+                    pathname === navItem.href && "text-foreground",
+                  )}
                 >
-                  {navItem}
+                  {navItem.label}
                 </Link>
               ))}
               <ThemeToggle />
