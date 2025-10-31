@@ -1,5 +1,6 @@
 import { AppHeader } from "@/components/app-header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -41,6 +42,7 @@ export default function RootLayout({
         >
           <AppHeader />
           <main>{children}</main>
+          <Toaster position="top-center" />
         </ThemeProvider>
       </body>
     </html>

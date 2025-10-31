@@ -13,7 +13,7 @@ export const ThemeToggle: React.FC = () => {
       id="theme-toggle-button"
       type="button"
       className={cn(
-        "h-6 w-6 fill-muted-foreground hover:fill-foreground",
+        "h-6 w-6 fill-muted-foreground hover:fill-foreground cursor-pointer",
         "focus-visible:rounded-full focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-ring/50",
         "transition-all duration-500",
         { "-rotate-180": theme === "dark" },
