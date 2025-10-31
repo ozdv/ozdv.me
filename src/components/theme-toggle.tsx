@@ -1,40 +1,33 @@
 "use client";
 
-import * as React from "react";
-import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
 export const ThemeToggle: React.FC = () => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  const otherTheme = theme === "dark" ? "light" : "dark";
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <button
+      id="theme-toggle-button"
+      type="button"
+      className={cn(
+        "h-6 w-6 fill-muted-foreground hover:fill-foreground",
+        "focus-visible:rounded-full focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-ring/50",
+        "transition-all duration-500",
+        { "-rotate-180": theme === "dark" },
+      )}
+      onClick={() => setTheme(otherTheme)}
+    >
+      <span className="sr-only">Switch to {otherTheme} theme</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm-5-8a5 5 0 0 0 5 5V7a5 5 0 0 0-5 5Z"
+        />
+      </svg>
+    </button>
   );
 };
