@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "Projects",
+  title: "Taglish",
+  description: "Taglish",
 };
 
-export default function Projects() {
+export default function Taglish() {
   return (
     <div className="mx-auto px-6 py-4 h-[500vh]">
-      <h1>Projects</h1>
+      <h1>Taglish</h1>
       <p>Coming soon!</p>
     </div>
   );
