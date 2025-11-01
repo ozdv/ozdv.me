@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen`}
       >
         <ThemeProvider
           attribute="class"
@@ -41,7 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppHeader />
-          <main>{children}</main>
+          <main className="flex-1 overflow-y-auto">{children}</main>
           <Toaster position="top-center" />
         </ThemeProvider>
       </body>
