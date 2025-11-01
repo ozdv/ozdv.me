@@ -2,10 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import square_headshot from "../../public/square_headshot.jpg";
+import square_headshot from "../../../public/square_headshot.jpg";
 
-export const HomePage = () => {
-  // todo add sections here for experience/projects
+export const HeroSection = () => {
   return (
     <div className="">
       <section className="relative">
