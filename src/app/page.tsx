@@ -1,7 +1,5 @@
+import { HomePage } from "@/components/home-page";
+
 export default function Home() {
-  return (
-    <div className="mx-auto px-6 py-4 h-[500vh]">
-      <h1>Home</h1>
-    </div>
-  );
+  return <HomePage />;
 }

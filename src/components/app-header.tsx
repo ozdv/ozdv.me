@@ -37,26 +37,25 @@ export const AppHeader = () => {
         scroll && "border-b-border",
       )}
     >
-      <nav className="mx-auto px-6 py-4 h-var(--header-height)">
-        <div className="flex items-center justify-between">
-          <MobileNav className="flex lg:hidden" />
-
+      <nav className="mx-auto px-6 py-4 h-var(--header-height)  flex items-center justify-between">
+        <MobileNav className="flex md:hidden" />
+        <div className="flex items-center gap-8">
           <Link
             href="/"
             aria-label="Home"
             scroll={false}
-            className="hidden lg:flex text-2xl text-muted-foreground transition-colors hover:text-foreground px-2 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 "
+            className="hidden md:flex text-2xl text-muted-foreground transition-colors hover:text-foreground px-2 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 "
           >
             OZDV
           </Link>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
             {NAV_ITEMS.map((navItem: { label: string; href: string }) => (
               <Link
                 key={navItem.href}
                 href={navItem.href}
                 className={cn(
-                  "text-base px-1 text-muted-foreground hover:text-foreground transition-colors",
+                  "text-sm px-1 text-muted-foreground hover:text-foreground transition-colors font-semibold ",
                   pathname === navItem.href && "text-foreground",
                 )}
               >
@@ -64,9 +63,8 @@ export const AppHeader = () => {
               </Link>
             ))}
           </div>
-
-          <ThemeToggle />
         </div>
+        <ThemeToggle />
       </nav>
     </header>
   );

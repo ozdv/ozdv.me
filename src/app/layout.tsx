@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - ozdv",
+    template: "%s - ozdv.me",
     default: "ozdv",
   },
   description: "Personal website of Cameron Davies",

@@ -101,12 +101,12 @@ export const MobileNav = ({ className }: { className?: string }) => {
             </div>
             <div className="flex flex-row gap-6">
               <Button variant="ghost" size="icon" aria-label="GitHub" asChild>
-                <Link href="https://github.com/ozdv">
+                <Link href="https://github.com/ozdv" target="_blank">
                   <Github className="size-8" />
                 </Link>
               </Button>
               <Button variant="ghost" size="icon" aria-label="LinkedIn" asChild>
-                <Link href="https://www.linkedin.com/in/ozdv/">
+                <Link href="https://www.linkedin.com/in/ozdv/" target="_blank">
                   <Linkedin className="size-8" />
                 </Link>
               </Button>
