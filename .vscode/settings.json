@@ -12,5 +12,6 @@
     "source.fixAll.eslint": "explicit",
     "source.addMissingImports": "explicit",
     "source.organizeImports": "explicit"
-  }
+  },
+  "css.lint.unknownAtRules": "ignore"
 }
