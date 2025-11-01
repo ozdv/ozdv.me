@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button";
 import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import square_headshot from "../../public/square_headshot.jpg";
-import { Button } from "./ui/button";
 
 export const HomePage = () => {
   // todo add sections here for experience/projects
