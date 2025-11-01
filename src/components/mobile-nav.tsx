@@ -60,9 +60,14 @@ export const MobileNav = ({ className }: { className?: string }) => {
         <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
           <div className="flex flex-col gap-4">
             <div className="text-muted-foreground text-sm font-medium">
-              Menu
+              Navigation
             </div>
+
             <div className="flex flex-col gap-3">
+              <MobileLink href="/" onOpenChange={setOpen}>
+                Home
+              </MobileLink>
+
               {NAV_ITEMS.map((navItem: { label: string; href: string }) => (
                 <MobileLink
                   key={navItem.href}
