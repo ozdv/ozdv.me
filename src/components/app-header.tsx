@@ -50,7 +50,7 @@ export const AppHeader = () => {
                   key={navItem.href}
                   href={navItem.href}
                   className={cn(
-                    "text-base px-1 text-muted-foreground hover:text-foreground transition-colors first-letter:uppercase",
+                    "text-base px-1 text-muted-foreground hover:text-foreground transition-colors",
                     pathname === navItem.href && "text-foreground",
                   )}
                 >
