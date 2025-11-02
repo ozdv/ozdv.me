@@ -46,7 +46,7 @@ export const AppHeader = () => {
           <Button
             asChild
             variant="ghost"
-            className="hidden lg:flex text-2xl font-normal"
+            className="hidden md:flex text-2xl font-normal"
           >
             <Link href="/">
               OZDV
