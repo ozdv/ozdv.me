@@ -1,8 +1,7 @@
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/ui/icons";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import appStore from "../../../public/appStore.svg";
-import playStore from "../../../public/playStore.svg";
 
 export const metadata: Metadata = {
   title: "iCatholic",
@@ -35,34 +34,24 @@ export default function ICatholic() {
             href="https://apps.apple.com/us/app/icatholic/id1666078538"
             rel="nofollow noopener noreferrer"
           >
-            <Image
-              src={appStore}
-              height={40}
-              alt="ios-app-store-download-button"
-            />
+            <Icons.appStore />
           </Link>
+
           <Link
             target="_blank"
             href="https://play.google.com/store/apps/details?id=com.ozdv.icatholic&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
             rel="nofollow noopener noreferrer"
           >
-            <Image
-              src={playStore}
-              height={40}
-              alt="google-play-store-download-button"
-            />
+            <Icons.playStore />
           </Link>
         </div>
       </div>
       <div className="mt-8">
-        <Link
-          href="/privacy"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="text-sm text-muted-foreground hover:text-primary transition-colors"
-        >
-          Privacy policy
-        </Link>
+        <Button variant="link" asChild>
+          <Link href="/privacy" rel="noopener noreferrer" target="_blank">
+            Privacy policy
+          </Link>
+        </Button>
       </div>
     </div>
   );

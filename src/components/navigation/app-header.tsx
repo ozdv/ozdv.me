@@ -45,14 +45,15 @@ export const AppHeader = () => {
 
           <Button
             asChild
-            variant="ghost"
-            className="hidden md:flex text-2xl font-normal"
+            variant={null}
+            className="hidden md:flex text-2xl font-normal relative  after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-linear-to-r after:from-blue-400 after:to-pink-500 after:transition-all after:duration-300 hover:after:w-full"
           >
             <Link href="/">
               OZDV
               <span className="sr-only">Home</span>
             </Link>
           </Button>
+
           <div className="hidden md:flex items-center gap-2">
             {NAV_ITEMS.map((navItem: { label: string; href: string }) => (
               <MainNavItem
