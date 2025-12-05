@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Icons } from "@/components/ui/icons";
 import { Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -69,7 +68,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <Icons.squigglyLine className="absolute -bottom-px left-0 w-full rotate-180 text-accent" />
+      {/* <Icons.squigglyLine className="absolute -bottom-px left-0 w-full rotate-180 text-accent" /> */}
     </section>
   );
 };
