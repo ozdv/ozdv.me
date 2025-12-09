@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useCallback } from "react";
 
@@ -34,11 +33,7 @@ export const ThemeToggle: React.FC = () => {
       onClick={toggleTheme}
     >
       <span className="sr-only">Switch theme</span>
-      <ThemeIcon
-        className={cn("size-6 transition-transform duration-500", {
-          "rotate-180": resolvedTheme === "dark",
-        })}
-      />
+      <ThemeIcon className="size-6 transition-transform duration-500" />
     </Button>
   );
 };
