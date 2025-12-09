@@ -13,5 +13,9 @@
     "source.addMissingImports": "explicit",
     "source.organizeImports": "explicit"
   },
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "search.exclude": {
+    "node_modules": true,
+    ".next": true,
+  }
 }
