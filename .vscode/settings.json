@@ -4,10 +4,7 @@
   "prettier.prettierPath": "./node_modules/prettier",
   "prettier.requireConfig": true,
   "eslint.format.enable": false,
-  "tailwindCSS.classFunctions": [
-    "cva",
-    "cn"
-  ],
+  "tailwindCSS.classFunctions": ["cva", "cn"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.addMissingImports": "explicit",
@@ -16,6 +13,6 @@
   "css.lint.unknownAtRules": "ignore",
   "search.exclude": {
     "node_modules": true,
-    ".next": true,
+    ".next": true
   }
 }
