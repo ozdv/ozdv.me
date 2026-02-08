@@ -18,7 +18,7 @@ export const MainNavItem = ({
     >
       <Link href={href} {...props}>
         {label}
-        <ArrowRight className="w-4 h-4 translate-x-0 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
+        <ArrowRight className="size-4 translate-x-0 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
       </Link>
     </Button>
   );

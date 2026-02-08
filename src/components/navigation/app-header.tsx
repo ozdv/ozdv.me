@@ -35,18 +35,18 @@ export const AppHeader = () => {
   return (
     <header
       className={cn(
-        "fixed px-4 md:px-6 inset-x-0 top-0 z-50 mx-auto border-b backdrop-blur transition-colors duration-500 border-b-transparent h-(--header-height) flex",
+        "fixed inset-x-0 top-0 z-50 mx-auto flex h-(--header-height) border-b border-b-transparent px-4 backdrop-blur-sm transition-colors duration-500 md:px-6",
         scroll && "border-b-border",
       )}
     >
-      <div className="flex flex-row items-center justify-between w-full">
+      <div className="flex w-full flex-row items-center justify-between">
         <nav className="flex flex-row items-center gap-4">
           <MobileNav className="flex md:hidden" />
 
           <Button
             asChild
             variant={null}
-            className="hidden md:flex text-2xl font-normal relative  after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-linear-to-r after:from-blue-400 after:to-pink-500 after:transition-all after:duration-300 hover:after:w-full"
+            className="relative hidden text-2xl font-normal after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-linear-to-r after:from-blue-400 after:to-pink-500 after:transition-all after:duration-300 hover:after:w-full md:flex"
           >
             <Link href="/">
               OZDV
@@ -54,7 +54,7 @@ export const AppHeader = () => {
             </Link>
           </Button>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
             {NAV_ITEMS.map((navItem: { label: string; href: string }) => (
               <MainNavItem
                 key={navItem.href}

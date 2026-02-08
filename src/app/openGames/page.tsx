@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function OpenGames() {
   return (
-    <div className="mx-auto px-6 py-4 h-[500vh]">
+    <div className="mx-auto h-[500vh] px-6 py-4">
       <h1>Open Games</h1>
       <p>Coming soon!</p>
     </div>

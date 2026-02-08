@@ -48,7 +48,7 @@ export default function Colors() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-12">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold mb-4">Color System</h1>
+        <h1 className="mb-4 text-4xl font-bold">Color System</h1>
         <p className="text-muted-foreground">
           All CSS variables from globals.css visualized
         </p>
@@ -57,14 +57,14 @@ export default function Colors() {
       <div className="flex flex-row">
         {cssColors.map((color: string) => (
           <div className="" key={color}>
-            <code className="text-xs text-muted-foreground whitespace-nowrap">
+            <code className="text-xs whitespace-nowrap text-muted-foreground">
               bg-{color}
             </code>
             <div className={cn("w-32", `bg-${color}`)}>
               {cssColors.map((textColor: string) => (
                 <div
                   className={cn(
-                    "text-xs text-center whitespace-nowrap",
+                    "text-center text-xs whitespace-nowrap",
                     `text-${textColor}`,
                   )}
                   key={`${color}-${textColor}`}

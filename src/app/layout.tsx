@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-dvh max-h-dvh`}
+        className={`${geistSans.variable} ${geistMono.variable} flex max-h-dvh min-h-dvh flex-col antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -45,7 +45,7 @@ export default function RootLayout({
           <AppHeader />
           <main
             id="main-content"
-            className="flex-1 overflow-y-auto mt-(--header-height)"
+            className="mt-(--header-height) flex-1 overflow-y-auto"
           >
             {children}
           </main>

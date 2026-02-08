@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="mx-auto px-6 py-4 h-[500vh] flex flex-col items-center gap-4">
+    <div className="mx-auto flex h-[500vh] flex-col items-center gap-4 px-6 py-4">
       <ContactForm />
     </div>
   );

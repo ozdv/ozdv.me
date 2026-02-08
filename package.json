@@ -2,6 +2,10 @@
   "name": "ozdv.me",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Cameron Davies",
+    "url": "https://ozdv.me"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -47,6 +51,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-better-tailwindcss": "^4.1.1",
     "prettier": "3.6.2",
     "shadcn": "^3.8.4",
     "tailwindcss": "^4",

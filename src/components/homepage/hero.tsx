@@ -47,10 +47,10 @@ export const HeroSection = () => {
               size="icon"
               aria-label="GitHub"
               asChild
-              className="hover:text-foreground text-muted-foreground transition-colors size-12"
+              className="size-12 text-muted-foreground transition-colors hover:text-foreground"
             >
               <Link href="https://github.com/ozdv" target="_blank">
-                <Github className="size-8 " />
+                <Github className="size-8" />
               </Link>
             </Button>
             <Button
@@ -58,7 +58,7 @@ export const HeroSection = () => {
               size="icon"
               aria-label="LinkedIn"
               asChild
-              className="hover:text-foreground text-muted-foreground transition-colors size-12"
+              className="size-12 text-muted-foreground transition-colors hover:text-foreground"
             >
               <Link href="https://www.linkedin.com/in/ozdv/" target="_blank">
                 <Linkedin className="size-8" />

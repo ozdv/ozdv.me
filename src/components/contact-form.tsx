@@ -45,11 +45,11 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="mx-auto w-full max-w-md">
       <form onSubmit={onSubmit}>
         <FieldGroup>
           <FieldSet>
-            <FieldLegend className="text-center text-3xl! font-bold mb-4">
+            <FieldLegend className="mb-4 text-center text-3xl! font-bold">
               Contact me
             </FieldLegend>
             <FieldDescription className="text-center">

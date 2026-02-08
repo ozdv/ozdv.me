@@ -3,9 +3,9 @@ import { CAREER_EXPERIENCE } from "@/lib/constants";
 
 export const Experience = () => {
   return (
-    <section className="relative bg-accent h-screen px-4 py-10 ">
-      <div className="max-w-5xl mx-auto flex flex-col">
-        <div className="gap-1 flex flex-col">
+    <section className="relative h-screen bg-accent px-4 py-10">
+      <div className="mx-auto flex max-w-5xl flex-col">
+        <div className="flex flex-col gap-1">
           <h2 className="text-3xl font-bold text-primary">Experience</h2>
           <div className="text-muted-foreground">
             Overall I have{" "}
@@ -17,9 +17,9 @@ export const Experience = () => {
           {CAREER_EXPERIENCE.map((experience, idx) => (
             <div
               key={`${experience.jobTitle} - ${experience.company.name} - ${idx}`}
-              className="flex flex-col bg-background p-4 rounded-md shadow-md"
+              className="flex flex-col rounded-md bg-background p-4 shadow-md"
             >
-              <div className="flex flex-col gap-1 sm:flex-row justify-between ">
+              <div className="flex flex-col justify-between gap-1 sm:flex-row">
                 <div className="flex flex-row items-center gap-1">
                   <h3 className="text-lg font-medium">{experience.jobTitle}</h3>
                   <span className="text-muted-foreground"> @ </span>
@@ -28,14 +28,14 @@ export const Experience = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center gap-1">
-                  <div className="text-muted-foreground text-xs">
+                  <div className="text-xs text-muted-foreground">
                     {experience.from} - {experience.to}
                   </div>
                 </div>
               </div>
 
               <div className="text-muted-foreground">{experience.location}</div>
-              <ul className="list-disc list-inside">
+              <ul className="list-inside list-disc">
                 {experience.points?.map((point) => (
                   <li key={point}>{point}</li>
                 ))}

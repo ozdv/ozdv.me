@@ -31,13 +31,13 @@ export const MobileNav = ({ className }: { className?: string }) => {
             <div className="relative size-4">
               <span
                 className={cn(
-                  "bg-foreground absolute left-0 block h-0.5 w-4 transition-all duration-100",
+                  "absolute left-0 block h-0.5 w-4 bg-foreground transition-all duration-100",
                   open ? "top-[0.4rem] -rotate-45" : "top-1",
                 )}
               />
               <span
                 className={cn(
-                  "bg-foreground absolute left-0 block h-0.5 w-4 transition-all duration-100",
+                  "absolute left-0 block h-0.5 w-4 bg-foreground transition-all duration-100",
                   open ? "top-[0.4rem] rotate-45" : "top-2.5",
                 )}
               />
@@ -51,15 +51,15 @@ export const MobileNav = ({ className }: { className?: string }) => {
       </PopoverTrigger>
 
       <PopoverContent
-        className="bg-background/90 no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur duration-100"
+        className="no-scrollbar h-(--radix-popper-available-height) w-(--radix-popper-available-width) overflow-y-auto rounded-none border-none bg-background/90 p-0 shadow-none backdrop-blur-sm duration-100"
         align="start"
         side="bottom"
         alignOffset={-16}
         sideOffset={14}
       >
-        <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
+        <div className="flex flex-col gap-12 overflow-auto p-6">
           <div className="flex flex-col gap-4">
-            <div className="text-muted-foreground text-sm font-medium">
+            <div className="text-sm font-medium text-muted-foreground">
               Navigation
             </div>
 
@@ -80,7 +80,7 @@ export const MobileNav = ({ className }: { className?: string }) => {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="text-muted-foreground text-sm font-medium">
+            <div className="text-sm font-medium text-muted-foreground">
               Projects
             </div>
             <div className="flex flex-col gap-3">
@@ -96,7 +96,7 @@ export const MobileNav = ({ className }: { className?: string }) => {
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="text-muted-foreground text-sm font-medium">
+            <div className="text-sm font-medium text-muted-foreground">
               Socials
             </div>
             <div className="flex flex-row gap-6">
