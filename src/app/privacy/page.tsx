@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function PrivacyPage() {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto p-6">
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold text-primary">Privacy Policy</h1>
         <p className="text-muted-foreground">Last updated: November 25, 2024</p>
