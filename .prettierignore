@@ -3,6 +3,7 @@ next-env.d.ts
 
 # Dependencies:
 node_modules
+pnpm-lock.yaml
 
 # Build:
 build

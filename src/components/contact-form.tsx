@@ -19,7 +19,8 @@ export const ContactForm = () => {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     formData.append("access_key", "bf03f3da-599a-4c6b-8ac5-2528dd56a001");
 
     setLoading(true);
@@ -31,6 +32,8 @@ export const ContactForm = () => {
       .then((request) => request.json())
       .then((response) => {
         if (!response.success) throw new Error("Error submitting");
+        toast.success("Message sent successfully!");
+        form.reset();
       })
       .catch((e) => {
         toast.error("Error submitting. Please try again.", {
@@ -40,7 +43,6 @@ export const ContactForm = () => {
       })
       .finally(() => {
         setLoading(false);
-        toast.success("Message sent successfully!");
       });
   };
 
@@ -97,7 +99,7 @@ export const ContactForm = () => {
 
               <Field>
                 <FieldLabel>Message</FieldLabel>
-                <Textarea id="message" name="Message" rows={4} />
+                <Textarea required id="message" name="Message" rows={4} />
               </Field>
             </FieldGroup>
           </FieldSet>
