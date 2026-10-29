@@ -1,15 +1,12 @@
+import { Projects } from "@/components/homepage/projects";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Projects",
+  description:
+    "Apps and websites built by Cameron Davies, including the iCatholic mobile app.",
 };
 
-export default function Projects() {
-  return (
-    <div className="mx-auto px-6 py-4">
-      <h1>Projects</h1>
-      <p>Coming soon!</p>
-    </div>
-  );
+export default function ProjectsPage() {
+  return <Projects as="h1" />;
 }

@@ -7,10 +7,10 @@ import square_headshot from "../../../public/square_headshot.jpg";
 export const HeroSection = () => {
   return (
     <section className="relative">
-      <div className="flex flex-col items-center pb-20 sm:mt-10 sm:pb-40">
+      <div className="flex flex-col items-center pb-8 sm:mt-10 sm:pb-16">
         <Image
           src={square_headshot}
-          alt="Cameron_davies_photo"
+          alt="Cameron Davies"
           className="max-w-[200px] rounded-full border shadow-2xl duration-500 hover:rotate-3"
           priority
         />
