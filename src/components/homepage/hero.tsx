@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/constants";
+import { FileText, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import square_headshot from "../../../public/square_headshot.jpg";
@@ -66,6 +67,13 @@ export const HeroSection = () => {
             </Button>
           </div>
         </div>
+
+        <Button variant="outline" asChild className="mt-4">
+          <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener">
+            <FileText />
+            View resume
+          </a>
+        </Button>
       </div>
 
       {/* <Icons.squigglyLine className="absolute -bottom-px left-0 w-full rotate-180 text-accent" /> */}

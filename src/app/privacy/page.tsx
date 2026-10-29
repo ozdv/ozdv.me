@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "iCatholic Privacy Policy",
+  description: "Privacy policy for the iCatholic mobile app.",
+};
 
 export default function PrivacyPage() {
   return (
@@ -483,7 +489,7 @@ export default function PrivacyPage() {
                 target="_blank"
                 className="underline"
               >
-                https://www.ozdv.me/contact
+                https://ozdv.me/contact
               </Link>
             </p>
           </li>

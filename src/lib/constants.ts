@@ -2,6 +2,8 @@ import type { StaticImageData } from "next/image";
 import icatholicIcon from "../../public/projects/icatholic-icon.png";
 import legionScreenshot from "../../public/projects/legion-of-mary.jpg";
 
+export const SITE_URL = "https://ozdv.me";
+
 export const NAV_ITEMS = [
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
@@ -12,6 +14,7 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/ozdv",
   linkedin: "https://www.linkedin.com/in/ozdv/",
   email: "cam@ozdv.me",
+  resume: "/Cameron_Davies_Resume.pdf",
 };
 
 type LinkT = { label: string; href: string };

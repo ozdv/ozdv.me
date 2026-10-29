@@ -15,27 +15,18 @@ export const AppHeader = () => {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
-    const mainElement = document.getElementById("main-content");
-    if (!mainElement) return;
+    const handleScroll = () => setScroll(window.scrollY > 0);
 
-    const handleScroll = () => {
-      if (mainElement.scrollTop > 0) {
-        setScroll(true);
-      } else {
-        setScroll(false);
-      }
-    };
-
-    mainElement.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      mainElement.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 mx-auto flex h-(--header-height) border-b border-b-transparent px-4 backdrop-blur-sm transition-colors duration-500 md:px-6",
+        "sticky top-0 z-50 flex h-(--header-height) shrink-0 border-b border-b-transparent px-4 backdrop-blur-sm transition-colors duration-500 md:px-6",
         scroll && "border-b-border",
       )}
     >
