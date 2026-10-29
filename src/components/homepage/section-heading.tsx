@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -7,12 +8,14 @@ export const SectionHeading = ({
   title,
   description,
   moreHref,
+  moreLabel = "View all",
   className,
 }: {
   as?: "h1" | "h2";
   title: string;
   description?: React.ReactNode;
   moreHref?: string;
+  moreLabel?: string;
   className?: string;
 }) => {
   return (
@@ -33,7 +36,7 @@ export const SectionHeading = ({
           href={moreHref}
           className="group flex shrink-0 items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
-          View all
+          {moreLabel}
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       )}
@@ -45,11 +48,10 @@ export const StackList = ({ stack }: { stack: string[] }) => {
   return (
     <ul className="flex flex-wrap gap-1.5" aria-label="Tech stack">
       {stack.map((item) => (
-        <li
-          key={item}
-          className="rounded-md border px-2 py-0.5 text-xs text-muted-foreground"
-        >
-          {item}
+        <li key={item}>
+          <Badge variant="secondary" className="font-normal">
+            {item}
+          </Badge>
         </li>
       ))}
     </ul>

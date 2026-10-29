@@ -1,4 +1,6 @@
+import { AppFooter } from "@/components/navigation/app-footer";
 import { AppHeader } from "@/components/navigation/app-header";
+import { SITE_URL } from "@/lib/constants";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
@@ -18,11 +20,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s - ozdv.me",
-    default: "ozdv",
+    template: "%s · Cameron Davies",
+    default: "Cameron Davies · Full-Stack Software Engineer",
   },
-  description: "Personal website of Cameron Davies",
+  description:
+    "Cameron Davies is a full-stack software engineer in Calgary, Canada, building web and mobile products with React, Next.js, TypeScript, and Node.js.",
+  authors: [{ name: "Cameron Davies", url: SITE_URL }],
+  openGraph: {
+    type: "website",
+    siteName: "Cameron Davies",
+    locale: "en_CA",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -34,7 +47,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex max-h-dvh min-h-dvh flex-col antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-dvh flex-col antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -43,12 +56,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AppHeader />
-          <main
-            id="main-content"
-            className="mt-(--header-height) flex-1 overflow-y-auto"
-          >
+          <main id="main-content" className="flex-1">
             {children}
           </main>
+          <AppFooter />
           <Toaster position="top-center" />
         </ThemeProvider>
         <SpeedInsights />

@@ -5,7 +5,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "iCatholic",
-  description: "iCatholic",
+  description:
+    "iCatholic is a Catholic companion app for iOS and Android with daily Mass readings, the Divine Office, the Rosary, and prayers.",
 };
 
 export default function ICatholic() {

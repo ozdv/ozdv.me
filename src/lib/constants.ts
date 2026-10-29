@@ -2,6 +2,8 @@ import type { StaticImageData } from "next/image";
 import icatholicIcon from "../../public/projects/icatholic-icon.png";
 import legionScreenshot from "../../public/projects/legion-of-mary.jpg";
 
+export const SITE_URL = "https://ozdv.me";
+
 export const NAV_ITEMS = [
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
@@ -12,6 +14,7 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/ozdv",
   linkedin: "https://www.linkedin.com/in/ozdv/",
   email: "cam@ozdv.me",
+  resume: "/Cameron_Davies_Resume.pdf",
 };
 
 type LinkT = { label: string; href: string };
@@ -138,3 +141,44 @@ export const EDUCATION = {
   degree: "BSc in Computer Science & BA in Philosophy",
   year: "2022",
 };
+
+export const EXPERIENCE_HIGHLIGHTS = [
+  { value: "600+", label: "Businesses on the platform I helped build" },
+  { value: "50,000+", label: "Invoices automated through ERP integrations" },
+  { value: "200%", label: "Year-over-year customer growth at Quickly" },
+  { value: "1,000+", label: "Downloads of my app, iCatholic" },
+];
+
+export const SKILLS = [
+  {
+    group: "Frontend",
+    items: [
+      "React",
+      "React Native",
+      "Next.js",
+      "Tailwind CSS",
+      "Turborepo",
+      "Storybook",
+    ],
+  },
+  {
+    group: "Backend",
+    items: [
+      "Node.js",
+      "NestJS",
+      "Sequelize",
+      "PostgreSQL",
+      "MongoDB",
+      "HapiJS",
+      "OpenAPI",
+    ],
+  },
+  {
+    group: "Cloud & tooling",
+    items: ["AWS", "GCP", "Firebase", "Supabase", "Docker", "Jest", "Cypress"],
+  },
+  {
+    group: "Languages",
+    items: ["TypeScript", "JavaScript", "Python", "SQL", "Java", "C#", "C/C++"],
+  },
+];
