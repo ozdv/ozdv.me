@@ -1,15 +1,12 @@
+import { Experience } from "@/components/homepage/experience";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Experience",
+  description:
+    "Work experience of Cameron Davies, full-stack software engineer in Calgary.",
 };
 
-export default function Experience() {
-  return (
-    <div className="mx-auto px-6 py-4">
-      <h1>Experience</h1>
-      <p>Coming soon!</p>
-    </div>
-  );
+export default function ExperiencePage() {
+  return <Experience as="h1" />;
 }

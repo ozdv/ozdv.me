@@ -6,7 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { NAV_ITEMS, PROJECTS } from "@/lib/constants";
+import { NAV_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Github, Linkedin } from "lucide-react";
 import Link, { LinkProps } from "next/link";
@@ -69,22 +69,6 @@ export const MobileNav = ({ className }: { className?: string }) => {
               </MobileLink>
 
               {NAV_ITEMS.map((navItem: { label: string; href: string }) => (
-                <MobileLink
-                  key={navItem.href}
-                  href={navItem.href}
-                  onOpenChange={setOpen}
-                >
-                  {navItem.label}
-                </MobileLink>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="text-sm font-medium text-muted-foreground">
-              Projects
-            </div>
-            <div className="flex flex-col gap-3">
-              {PROJECTS.map((navItem: { label: string; href: string }) => (
                 <MobileLink
                   key={navItem.href}
                   href={navItem.href}
