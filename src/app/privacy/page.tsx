@@ -489,7 +489,7 @@ export default function PrivacyPage() {
                 target="_blank"
                 className="underline"
               >
-                https://ozdv.me/contact
+                https://www.ozdv.me/contact
               </Link>
             </p>
           </li>
