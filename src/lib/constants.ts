@@ -37,7 +37,7 @@ export const PROJECTS: ProjectT[] = [
       "Daily Mass readings, the Divine Office, the Rosary, prayers in English and Latin, and a guided examination of conscience, all with custom reminders.",
     highlights: [
       "Built and shipped the full stack: a React Native app and a NestJS + PostgreSQL backend for liturgical calendar and Bible data.",
-      "Grew to 1,000+ downloads through organic SEO and App Store optimization.",
+      "Grew to 1,000+ downloads with 21% monthly active users through organic SEO and App Store optimization.",
     ],
     stack: ["React Native", "Expo", "TypeScript", "Supabase", "NestJS"],
     since: "2022",
@@ -103,7 +103,8 @@ export const CAREER_EXPERIENCE: CareerExperienceT[] = [
     points: [
       "Built the entire frontend architecture from scratch, taking Quickly from zero to a working SaaS platform in 3 months.",
       "Built backend services on Node.js, AWS Lambda, Aurora, and SQS for ERP integrations and high-volume invoice processing.",
-      "Integrated QuickBooks, Sage, Xero, and other ERPs to automate invoicing across 50,000+ invoices for 600+ businesses.",
+      "Designed APIs and infrastructure supporting 600+ businesses, contributing to 200% customer growth and a 138% year-over-year revenue increase.",
+      "Integrated QuickBooks, Sage, Xero, and other ERPs to automate invoicing across 50,000+ invoices.",
       "Implemented EFT and credit card payment processing, handling millions of dollars in transactions.",
       "Set up CI/CD with Jest unit tests and Cypress end-to-end tests.",
     ],
@@ -115,6 +116,7 @@ export const CAREER_EXPERIENCE: CareerExperienceT[] = [
       "AWS",
       "Turborepo",
       "Tailwind CSS",
+      "Docker",
     ],
   },
   {
