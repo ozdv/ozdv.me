@@ -14,6 +14,7 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/ozdv",
   linkedin: "https://www.linkedin.com/in/ozdv/",
   email: "cam@ozdv.me",
+  resume: "/Cameron_Davies_Resume.pdf",
 };
 
 type LinkT = { label: string; href: string };

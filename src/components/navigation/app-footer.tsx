@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/lib/constants";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 const SOCIALS = [
   { label: "GitHub", href: SOCIAL_LINKS.github, icon: Github },
   { label: "LinkedIn", href: SOCIAL_LINKS.linkedin, icon: Linkedin },
   { label: "Email", href: `mailto:${SOCIAL_LINKS.email}`, icon: Mail },
+  { label: "Resume", href: SOCIAL_LINKS.resume, icon: FileText },
 ];
 
 export const AppFooter = () => {
@@ -44,15 +45,15 @@ export const AppFooter = () => {
               asChild
               className="text-muted-foreground hover:text-foreground"
             >
-              <Link
+              <a
                 href={href}
-                {...(href.startsWith("http") && {
+                {...(!href.startsWith("mailto:") && {
                   target: "_blank",
                   rel: "noopener noreferrer",
                 })}
               >
                 <Icon className="size-5" />
-              </Link>
+              </a>
             </Button>
           ))}
         </div>
