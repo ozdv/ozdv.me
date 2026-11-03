@@ -1,13 +1,43 @@
 import { Button } from "@/components/ui/button";
+import { trackAttributes } from "@/lib/analytics";
 import { NAV_ITEMS, SOCIAL_LINKS } from "@/lib/constants";
 import { FileText, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 const SOCIALS = [
-  { label: "GitHub", href: SOCIAL_LINKS.github, icon: Github },
-  { label: "LinkedIn", href: SOCIAL_LINKS.linkedin, icon: Linkedin },
-  { label: "Email", href: `mailto:${SOCIAL_LINKS.email}`, icon: Mail },
-  { label: "Resume", href: SOCIAL_LINKS.resume, icon: FileText },
+  {
+    label: "GitHub",
+    href: SOCIAL_LINKS.github,
+    icon: Github,
+    track: trackAttributes("social_link_clicked", {
+      network: "github",
+      location: "footer",
+    }),
+  },
+  {
+    label: "LinkedIn",
+    href: SOCIAL_LINKS.linkedin,
+    icon: Linkedin,
+    track: trackAttributes("social_link_clicked", {
+      network: "linkedin",
+      location: "footer",
+    }),
+  },
+  {
+    label: "Email",
+    href: `mailto:${SOCIAL_LINKS.email}`,
+    icon: Mail,
+    track: trackAttributes("social_link_clicked", {
+      network: "email",
+      location: "footer",
+    }),
+  },
+  {
+    label: "Resume",
+    href: SOCIAL_LINKS.resume,
+    icon: FileText,
+    track: trackAttributes("resume_opened", { location: "footer" }),
+  },
 ];
 
 export const AppFooter = () => {
@@ -36,7 +66,7 @@ export const AppFooter = () => {
         </nav>
 
         <div className="flex gap-1">
-          {SOCIALS.map(({ label, href, icon: Icon }) => (
+          {SOCIALS.map(({ label, href, icon: Icon, track }) => (
             <Button
               key={label}
               variant="ghost"
@@ -47,6 +77,7 @@ export const AppFooter = () => {
             >
               <a
                 href={href}
+                {...track}
                 {...(!href.startsWith("mailto:") && {
                   target: "_blank",
                   rel: "noopener noreferrer",

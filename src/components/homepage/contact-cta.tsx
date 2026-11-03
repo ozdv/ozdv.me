@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { trackAttributes } from "@/lib/analytics";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import Link from "next/link";
 
@@ -16,7 +17,13 @@ export const ContactCta = () => {
             <Link href="/contact">Get in touch</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href={`mailto:${SOCIAL_LINKS.email}`}>
+            <Link
+              href={`mailto:${SOCIAL_LINKS.email}`}
+              {...trackAttributes("social_link_clicked", {
+                network: "email",
+                location: "contact_cta",
+              })}
+            >
               {SOCIAL_LINKS.email}
             </Link>
           </Button>

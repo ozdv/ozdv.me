@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { trackAttributes } from "@/lib/analytics";
 import {
   Popover,
   PopoverContent,
@@ -85,12 +86,26 @@ export const MobileNav = ({ className }: { className?: string }) => {
             </div>
             <div className="flex flex-row gap-6">
               <Button variant="ghost" size="icon" aria-label="GitHub" asChild>
-                <Link href="https://github.com/ozdv" target="_blank">
+                <Link
+                  href="https://github.com/ozdv"
+                  target="_blank"
+                  {...trackAttributes("social_link_clicked", {
+                    network: "github",
+                    location: "mobile_nav",
+                  })}
+                >
                   <Github className="size-8" />
                 </Link>
               </Button>
               <Button variant="ghost" size="icon" aria-label="LinkedIn" asChild>
-                <Link href="https://www.linkedin.com/in/ozdv/" target="_blank">
+                <Link
+                  href="https://www.linkedin.com/in/ozdv/"
+                  target="_blank"
+                  {...trackAttributes("social_link_clicked", {
+                    network: "linkedin",
+                    location: "mobile_nav",
+                  })}
+                >
                   <Linkedin className="size-8" />
                 </Link>
               </Button>

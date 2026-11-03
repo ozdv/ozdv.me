@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import type { AnalyticsEvents } from "@/lib/analytics";
+import posthog from "posthog-js";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -33,9 +35,15 @@ export const ContactForm = () => {
       .then((response) => {
         if (!response.success) throw new Error("Error submitting");
         toast.success("Message sent successfully!");
+        posthog.capture("contact_form_submitted", {
+          success: true,
+        } satisfies AnalyticsEvents["contact_form_submitted"]);
         form.reset();
       })
       .catch((e) => {
+        posthog.capture("contact_form_submitted", {
+          success: false,
+        } satisfies AnalyticsEvents["contact_form_submitted"]);
         toast.error("Error submitting. Please try again.", {
           description: e.message,
         });

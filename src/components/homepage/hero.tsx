@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { trackAttributes } from "@/lib/analytics";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { FileText, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
@@ -50,7 +51,14 @@ export const HeroSection = () => {
               asChild
               className="size-12 text-muted-foreground transition-colors hover:text-foreground"
             >
-              <Link href="https://github.com/ozdv" target="_blank">
+              <Link
+                href="https://github.com/ozdv"
+                target="_blank"
+                {...trackAttributes("social_link_clicked", {
+                  network: "github",
+                  location: "hero",
+                })}
+              >
                 <Github className="size-8" />
               </Link>
             </Button>
@@ -61,7 +69,14 @@ export const HeroSection = () => {
               asChild
               className="size-12 text-muted-foreground transition-colors hover:text-foreground"
             >
-              <Link href="https://www.linkedin.com/in/ozdv/" target="_blank">
+              <Link
+                href="https://www.linkedin.com/in/ozdv/"
+                target="_blank"
+                {...trackAttributes("social_link_clicked", {
+                  network: "linkedin",
+                  location: "hero",
+                })}
+              >
                 <Linkedin className="size-8" />
               </Link>
             </Button>
@@ -69,7 +84,12 @@ export const HeroSection = () => {
         </div>
 
         <Button variant="outline" asChild className="mt-4">
-          <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener">
+          <a
+            href={SOCIAL_LINKS.resume}
+            target="_blank"
+            rel="noopener"
+            {...trackAttributes("resume_opened", { location: "hero" })}
+          >
             <FileText />
             View resume
           </a>

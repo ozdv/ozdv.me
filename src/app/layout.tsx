@@ -1,3 +1,4 @@
+import { TrackClicks } from "@/components/analytics/track-clicks";
 import { AppFooter } from "@/components/navigation/app-footer";
 import { AppHeader } from "@/components/navigation/app-header";
 import { SITE_URL } from "@/lib/constants";
@@ -62,6 +63,7 @@ export default function RootLayout({
           <AppFooter />
           <Toaster position="top-center" />
         </ThemeProvider>
+        <TrackClicks />
         <SpeedInsights />
         <Analytics />
       </body>

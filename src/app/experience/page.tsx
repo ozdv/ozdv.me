@@ -1,6 +1,7 @@
 import { ExperienceTimeline } from "@/components/homepage/experience";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { trackAttributes } from "@/lib/analytics";
 import {
   Card,
   CardContent,
@@ -32,7 +33,14 @@ export default function ExperiencePage() {
         </p>
         <div className="flex flex-wrap gap-3">
           <Button asChild>
-            <a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener">
+            <a
+              href={SOCIAL_LINKS.resume}
+              target="_blank"
+              rel="noopener"
+              {...trackAttributes("resume_opened", {
+                location: "experience_page",
+              })}
+            >
               <FileText />
               View resume
             </a>
