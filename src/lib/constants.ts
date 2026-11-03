@@ -2,7 +2,7 @@ import type { StaticImageData } from "next/image";
 import icatholicIcon from "../../public/projects/icatholic-icon.png";
 import legionScreenshot from "../../public/projects/legion-of-mary.jpg";
 
-export const SITE_URL = "https://ozdv.me";
+export const SITE_URL = "https://www.ozdv.me";
 
 export const NAV_ITEMS = [
   { label: "Projects", href: "/projects" },
