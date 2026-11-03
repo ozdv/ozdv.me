@@ -47,6 +47,11 @@ export default function ICatholic() {
           </Link>
         </div>
       </div>
+      <div className="mt-6">
+        <Button asChild>
+          <Link href="https://icatholic.ozdv.me">Open the web app</Link>
+        </Button>
+      </div>
       <div className="mt-8">
         <Button variant="link" asChild>
           <Link href="/privacy" rel="noopener noreferrer" target="_blank">
