@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { trackAttributes } from "@/lib/analytics";
 import { Icons } from "@/components/ui/icons";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -33,6 +34,11 @@ export default function ICatholic() {
           <Link
             target="_blank"
             href="https://apps.apple.com/us/app/icatholic/id1666078538"
+            {...trackAttributes("project_link_clicked", {
+              project: "iCatholic",
+              link: "App Store",
+              location: "icatholic_page",
+            })}
             rel="nofollow noopener noreferrer"
           >
             <Icons.appStore />
@@ -41,6 +47,11 @@ export default function ICatholic() {
           <Link
             target="_blank"
             href="https://play.google.com/store/apps/details?id=com.ozdv.icatholic&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+            {...trackAttributes("project_link_clicked", {
+              project: "iCatholic",
+              link: "Google Play",
+              location: "icatholic_page",
+            })}
             rel="nofollow noopener noreferrer"
           >
             <Icons.playStore />
@@ -49,7 +60,16 @@ export default function ICatholic() {
       </div>
       <div className="mt-6">
         <Button asChild>
-          <Link href="https://icatholic.ozdv.me">Open the web app</Link>
+          <Link
+            href="https://icatholic.ozdv.me"
+            {...trackAttributes("project_link_clicked", {
+              project: "iCatholic",
+              link: "Web app",
+              location: "icatholic_page",
+            })}
+          >
+            Open the web app
+          </Link>
         </Button>
       </div>
       <div className="mt-8">

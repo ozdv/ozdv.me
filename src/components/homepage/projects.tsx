@@ -3,6 +3,7 @@ import {
   StackList,
 } from "@/components/homepage/section-heading";
 import { PROJECTS } from "@/lib/constants";
+import { trackAttributes } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
@@ -62,6 +63,11 @@ export const Projects = ({ as = "h2" }: { as?: "h1" | "h2" }) => {
                       <Link
                         key={link.href}
                         href={link.href}
+                        {...trackAttributes("project_link_clicked", {
+                          project: project.name,
+                          link: link.label,
+                          location: "project_card",
+                        })}
                         {...(external && {
                           target: "_blank",
                           rel: "noopener noreferrer",
